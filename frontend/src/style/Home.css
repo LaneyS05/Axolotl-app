@@ -1,0 +1,23 @@
+body {
+  background-color: rgb(79, 212, 212);
+  position: relative;
+  min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+}
+
+h1 {
+  text-align: center;
+  color: lightcoral;
+}
+
+img {
+  border-radius: 25%;
+  height: 300px;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
