@@ -6,17 +6,25 @@ function AxolotlIndex() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:8080/axolotls`);
-      console.log(response);
-      const resData = await response.json();
-      setAxolotls(resData);
+      try {
+        const response = await fetch(`http://localhost:8080/Axolotlall`); // Corrected endpoint
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const resData = await response.json();
+        setAxolotls(resData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
     fetchData();
   }, []);
 
   let axolotlFormatted = axolotls.map((singleAxolotl) => {
     return (
-      <div key={singleAxolotl.Id}>
+      <div key={singleAxolotl.id}>
+        {" "}
+        {/* Corrected key */}
         <h2>
           <Link to={`/axolotl/${singleAxolotl.axolotlId}`}>
             {singleAxolotl.name}

@@ -4,7 +4,7 @@ const {
   getAxolotlById,
 } = require("../Controllers/axolotlController");
 
-router.get("/all", getAllAxolotls);
+router.get("/Axolotlall", getAllAxolotls);
 router.get("/:id", getAxolotlById);
 
 module.exports = router;
