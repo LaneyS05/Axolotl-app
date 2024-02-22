@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = require("../Modles/Axolotl");
+const db = require("../Models/Axolotl");
 
 const { Axolotl } = db;
 

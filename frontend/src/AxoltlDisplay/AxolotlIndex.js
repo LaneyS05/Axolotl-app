@@ -1,36 +1,40 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-//import { useHistory } from "react-router";
-
 function AxolotlIndex() {
-  //const history = useHistory();
-
-  const [axolotl, setAxolotl] = useState([]);
+  const [axolotls, setAxolotls] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:8080/all`);
+      const response = await fetch(`http://localhost:8080/axolotls`);
+      console.log(response);
       const resData = await response.json();
-      setAxolotl(resData);
+      setAxolotls(resData);
     };
     fetchData();
   }, []);
 
-  let axolotlFormatted = axolotl.map((axolotl) => {
+  let axolotlFormatted = axolotls.map((singleAxolotl) => {
     return (
-      <div key={axolotl.Id}>
+      <div key={singleAxolotl.Id}>
         <h2>
-          <Link to={`/axolotl/${axolotl.axolotlId}`}>{axolotl.name}</Link>
+          <Link to={`/axolotl/${singleAxolotl.axolotlId}`}>
+            {singleAxolotl.name}
+          </Link>
         </h2>
-        <img style={{ maxWidth: 200 }} src={axolotl.pic} alt={axolotl.name} />
+        <img
+          style={{ maxWidth: 200 }}
+          src={singleAxolotl.pic}
+          alt={singleAxolotl.name}
+        />
         <p>
-          Local to {axolotl.local}, Live in {axolotl.habitat}, Discovered in{" "}
-          {axolotl.discovered}
+          Local to {singleAxolotl.local}, Live in {singleAxolotl.habitat},
+          Discovered in {singleAxolotl.discovered}
         </p>
       </div>
     );
   });
+
   return (
     <div>
       <h1>Types of Axolotls</h1>

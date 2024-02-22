@@ -3,7 +3,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const axolotlController = require("./Controllers/axolotlController.js");
 const mongoose = require("mongoose");
-const dbconnect = require("./Modles/Axolotl.js"); //'express-react-views'
+const dbconnect = require("./Models/Axolotl.js"); //'express-react-views'
 
 // CONFIGURATION
 require("dotenv").config();
