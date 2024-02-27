@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const { Axolotl } = require("../Models/Axolotl");
+const Axolotl = require("../Models/Axolotl");
+
+// Routes...
 
 // POST: Create a new Axolotl
 router.post("/", async (req, res) => {

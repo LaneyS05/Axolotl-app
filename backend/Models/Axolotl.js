@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const AxololtSchema = new mongoose.Schema({
+const AxolotlSchema = new mongoose.Schema({
   name: { type: String, required: true },
   pic: { type: String },
-  local: { type: String },
+  location: { type: String },
   habitat: { type: String, required: true },
-  discoverd: { type: Number, required: true },
+  discovered: { type: Number, required: true },
 });
 
-module.exports = mongoose.model("Axolotle", AxololtSchema);
+module.exports = mongoose.model("Axolotl", AxolotlSchema);
