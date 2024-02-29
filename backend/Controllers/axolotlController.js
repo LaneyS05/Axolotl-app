@@ -7,11 +7,11 @@ router.post("/", async (req, res) => {
   if (!req.body.pic) {
     req.body.pic = "http://Axolotlkitten.com/400/400";
   }
-  if (!req.body.city) {
-    req.body.city = "Anytown";
+  if (!req.body.habitat) {
+    req.body.habitat = "Anytown";
   }
-  if (!req.body.state) {
-    req.body.state = "USA";
+  if (!req.body.location) {
+    req.body.location = "USA";
   }
   try {
     const newAxolotl = await Axolotl.create(req.body);

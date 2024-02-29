@@ -24,6 +24,7 @@ module.exports = (sequelize) => {
     {
       sequelize,
       modelName: "Axolotl", // Removed 'underscored' option, as it's not needed here
+      tableName: "Axolotls",
     }
   );
 

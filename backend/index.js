@@ -10,14 +10,13 @@ const sequelize = new Sequelize(
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   {
-    host: process.env.DB_HOST,
-    dialect: "postgres", // Or "mysql" for MySQL
-    // Other options if needed
+    host: "127.0.0.1", // Change to your PostgreSQL host
+    dialect: "postgres",
   }
 );
 
 // Import Sequelize models and configurations
-const AxolotlModel = require("./Models/Axolotl")(sequelize); // Pass sequelize instance here
+const AxolotlModel = require("./Models/Axolotl")(sequelize);
 
 const app = express();
 
@@ -26,7 +25,9 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/axolotl", require("./Controllers/axolotlController.js"));
+// Routes
+const axolotlRouter = require("./Controllers/axolotlController.js");
+app.use("/axolotl", axolotlRouter);
 
 // Test the connection
 sequelize
